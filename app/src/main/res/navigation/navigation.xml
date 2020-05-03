@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/chooseLangauge">
+    <fragment
+        android:id="@+id/title2"
+        android:name="app.elblasy.kids.ui.title.Title"
+        android:label="title_fragment"
+        tools:layout="@layout/title_fragment" >
+        <action
+            android:id="@+id/action_title2_to_letters"
+            app:destination="@id/letters"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left" />
+        <action
+            android:id="@+id/action_title2_to_numbers"
+            app:destination="@id/numbers"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left" />
+        <action
+            android:id="@+id/action_title2_to_colors"
+            app:destination="@id/colors"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left" />
+        <action
+            android:id="@+id/action_title2_to_questions"
+            app:destination="@id/questions"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/letters"
+        android:name="app.elblasy.kids.ui.letters.Letters"
+        android:label="Letters" />
+    <fragment
+        android:id="@+id/numbers"
+        android:name="app.elblasy.kids.ui.numbers.Numbers"
+        android:label="numbers_fragment"
+        tools:layout="@layout/numbers_fragment" />
+    <fragment
+        android:id="@+id/colors"
+        android:name="app.elblasy.kids.ui.colors.Colors"
+        android:label="colors_fragment"
+        tools:layout="@layout/colors_fragment" />
+    <fragment
+        android:id="@+id/questions"
+        android:name="app.elblasy.kids.ui.questions.Questions"
+        android:label="questions_fragment"
+        tools:layout="@layout/questions_fragment" >
+        <action
+            android:id="@+id/action_questions_to_title22"
+            app:destination="@id/title2"
+            app:enterAnim="@anim/slide_in_left"
+            app:popUpTo="@id/title2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/levels"
+        android:name="app.elblasy.kids.ui.levels.Levels"
+        android:label="levels_fragment"
+        tools:layout="@layout/levels_fragment" >
+        <action
+            android:id="@+id/action_levels_to_title2"
+            app:destination="@id/title2"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseLangauge"
+        android:name="app.elblasy.kids.ui.language.ChooseLangauge"
+        android:label="choose_langauge_fragment"
+        tools:layout="@layout/choose_langauge_fragment" >
+        <action
+            android:id="@+id/action_chooseLangauge_to_levels"
+            app:destination="@id/levels"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left" />
+    </fragment>
+</navigation>

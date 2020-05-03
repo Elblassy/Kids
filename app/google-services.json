@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1088955488087",
+    "firebase_url": "https://safty-87b3c.firebaseio.com",
+    "project_id": "safty-87b3c",
+    "storage_bucket": "safty-87b3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088955488087:android:b89d04a24ea3009e5d9012",
+        "android_client_info": {
+          "package_name": "app.elblasy.kids"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088955488087-r1n30vim9au2f6k3p329d6ov0467r9lc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.elblasy.kids",
+            "certificate_hash": "2f14ede2dffda04283eab395981e11bce6b1b15a"
+          }
+        },
+        {
+          "client_id": "1088955488087-lomurk6vptiem6am10agb897k1kfd455.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm-xv_r2PHrfebX1U6D_jC966mn5SlBco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088955488087-lomurk6vptiem6am10agb897k1kfd455.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

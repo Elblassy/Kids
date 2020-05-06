@@ -105,19 +105,23 @@ public class Questions extends Fragment {
                             break;
                     }
                     if (answers.get(answerIndex) == correctAnswer) {
-                        showDialog(greating.get(answerIndex), 750);
+                        MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), R.raw.clap);
+                        mediaPlayer.start();
+                        showDialog(greating.get(answerIndex), 5000);
 
                         questionIndex++;
                         if (questionIndex < numQuestions) {
                             currentQuestion = questions.get(questionIndex);
-                            setQuestions(800);
+                            setQuestions(5100);
                             group.clearCheck();
                         } else {
                             showDialog(finish, 2000);
                             Navigation.findNavController(binding.questionRadioGroup).navigate(R.id.action_questions_to_title22);
                         }
                     } else {
-                        showDialog(tryAgain, 1500);
+                        MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), R.raw.fail);
+                        mediaPlayer.start();
+                        showDialog(tryAgain, 5000);
                     }
                 }
             }

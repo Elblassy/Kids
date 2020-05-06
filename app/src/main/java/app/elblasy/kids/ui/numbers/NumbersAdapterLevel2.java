@@ -2,6 +2,7 @@ package app.elblasy.kids.ui.numbers;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.elblasy.kids.R;
+import app.elblasy.kids.VideoPlayer;
 import app.elblasy.kids.models.LettersModel;
 import app.elblasy.kids.models.NumbersLevel2Model;
 
@@ -79,20 +81,8 @@ public class NumbersAdapterLevel2 extends RecyclerView.Adapter<NumbersAdapterLev
 
     private void videoDialog(int video){
 
-        Dialog dialog = new Dialog(context);
-        dialog.setContentView(R.layout.video_dialog);
-
-        VideoView videoView = dialog.findViewById(R.id.video);
         String path = "android.resource://" + context.getPackageName() + "/" + video;
-        videoView.setVideoURI(Uri.parse(path));
-        videoView.start();
-
-        Button end = dialog.findViewById(R.id.end);
-
-        end.setOnClickListener(v-> dialog.dismiss());
-
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
+        context.startActivity(new Intent(context, VideoPlayer.class).putExtra("video", path));
     }
 
 }

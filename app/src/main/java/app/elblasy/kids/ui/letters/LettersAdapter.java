@@ -2,6 +2,7 @@ package app.elblasy.kids.ui.letters;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.elblasy.kids.R;
+import app.elblasy.kids.VideoPlayer;
 import app.elblasy.kids.models.LettersModel;
 
 public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHolder> {
@@ -47,6 +49,8 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHold
 
         if (lettersModel.getImage() != -1) {
             holder.upperCase.setImageResource(lettersModel.getImage());
+        } else {
+            holder.title.setTextSize(55.0f);
         }
 
         if (!lettersModel.getName().equals("")) {
@@ -56,7 +60,7 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHold
             if (lettersModel.getAudio() != -1) {
                 MediaPlayer mediaPlayer = MediaPlayer.create(context, lettersModel.getAudio());
                 mediaPlayer.start();
-            }else {
+            } else {
                 videoDialog(lettersModel.getVideo());
             }
         });
@@ -86,21 +90,10 @@ public class LettersAdapter extends RecyclerView.Adapter<LettersAdapter.ViewHold
         }
     }
 
-    private void videoDialog(int video){
+    private void videoDialog(int video) {
 
-        Dialog dialog = new Dialog(context);
-        dialog.setContentView(R.layout.video_dialog);
-
-        VideoView videoView = dialog.findViewById(R.id.video);
         String path = "android.resource://" + context.getPackageName() + "/" + video;
-        videoView.setVideoURI(Uri.parse(path));
-        videoView.start();
+        context.startActivity(new Intent(context, VideoPlayer.class).putExtra("video", path));
 
-        Button end = dialog.findViewById(R.id.end);
-
-        end.setOnClickListener(v-> dialog.dismiss());
-
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
     }
 }
